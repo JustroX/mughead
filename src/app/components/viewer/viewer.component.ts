@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import * as marked from 'marked';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,8 +12,11 @@ import { map } from 'rxjs/operators';
 export class ViewerComponent implements OnChanges {
   @Input() url: string = '';
   @Input() showNavigation = false;
+  @Input() subRoute = 'view';
+
   md_url = '';
   md_parent = '';
+  parent_url = '';
   current_path = '';
 
   md$!: Observable<string>;
@@ -31,11 +33,13 @@ export class ViewerComponent implements OnChanges {
           const is_root = href[0] == '/';
 
           if (!is_absolute_path) {
-            if (is_root) final_href = `/view${href}`;
+            if (is_root) final_href = `/${this.subRoute}${href}`;
             else final_href = `${this.md_parent}/${href}`;
           }
 
-          return `<a title=${title} href=${final_href}>${text}</a>`;
+          const titleLine = title ? `title=${title}` : '';
+
+          return `<a ${titleLine} href=${final_href}>${text}</a>`;
         },
         heading: (text, level, raw, slugger) => {
           const slug = slugger.slug(text);
@@ -54,6 +58,18 @@ export class ViewerComponent implements OnChanges {
             </a>
           `;
         },
+        image: (href: string, title: string, text: string) => {
+          let final_href = '';
+          const is_absolute_path = is_abs_regex.test(href);
+          const is_root = href[0] == '/';
+
+          if (!is_absolute_path) {
+            if (is_root) final_href = `/content${href}`;
+            else final_href = `${this.parent_url}/${href}`;
+          }
+          const titleLine = title ? `title=${title}` : '';
+          return `<img src='${final_href}' ${titleLine} alt='${text}' />`;
+        },
       },
     });
   }
@@ -67,11 +83,12 @@ export class ViewerComponent implements OnChanges {
     const url_chunks = url.split('/').slice(2);
     const file_path = url_chunks.join('/');
     const parent_path = url_chunks.slice(0, url_chunks.length - 1).join('/');
+    this.parent_url = `/content/${parent_path}`;
 
-    if (parent_path == '') this.md_parent = `/view`;
-    else this.md_parent = `/view/${parent_path}`;
+    if (parent_path == '') this.md_parent = `/${this.subRoute}`;
+    else this.md_parent = `/${this.subRoute}/${parent_path}`;
 
-    this.current_path = `/view/${file_path}`;
+    this.current_path = `/${this.subRoute}/${file_path}`;
     this.md_url = `/content/${file_path}.md`;
     this.md$ = this.http.get(this.md_url, { responseType: 'text' });
     this.html$ = this.md$.pipe(map((x) => marked(x)));
