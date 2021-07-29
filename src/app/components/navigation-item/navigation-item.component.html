@@ -1,0 +1,10 @@
+<div *ngIf="navigation">
+  <a routerLink="." [fragment]="navigation.slug">
+    {{ navigation.text }}
+  </a>
+  <ul *ngIf="navigation.children.length">
+    <li *ngFor="let item of navigation.children">
+      <app-navigation-item [navigation]="item"></app-navigation-item>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,8 @@
+<div *ngIf="navigation">
+  <h1>Navigation</h1>
+  <ul *ngIf="navigation.children.length">
+    <li *ngFor="let item of navigation.children">
+      <app-navigation-item [navigation]="item"></app-navigation-item>
+    </li>
+  </ul>
+</div>
