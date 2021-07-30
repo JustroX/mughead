@@ -1,5 +1,13 @@
-# Main
+# Hooray! It works!
 
-This is a sample content
+Welcome to **Mughead.js** 🎉
 
-![Picture](pic.svg)
+This is the default page shown. Feel free to edit this page at `content/main.md`.
+
+---
+
+### Still new?
+
+Check out the [documentation](docs/documentation)
+
+---
