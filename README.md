@@ -26,4 +26,4 @@ Powered by [Angular](https://angular.io/) and [Marked](https://github.com/marked
 
 # Documentation
 
-Please see the official [documentation](https://mughead.netlify.app/view/main)
+Please see the official [documentation](https://mughead.netlify.app/view/docs/documentation)
