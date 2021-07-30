@@ -4,11 +4,17 @@ import { ContentComponent } from './pages/content/content.component';
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'view/main',
+  },
+  {
     path: 'view',
     children: [
       {
         path: '**',
         component: ContentComponent,
+        runGuardsAndResolvers: 'always',
       },
     ],
   },
@@ -20,6 +26,7 @@ const routes: Routes = [
       scrollPositionRestoration: 'enabled',
       anchorScrolling: 'enabled',
       scrollOffset: [0, 64],
+      onSameUrlNavigation: 'reload',
     }),
   ],
   exports: [RouterModule],
