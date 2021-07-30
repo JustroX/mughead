@@ -35,7 +35,7 @@ export class ViewerComponent implements OnChanges {
           if (!is_absolute_path) {
             if (is_root) final_href = `/${this.subRoute}${href}`;
             else final_href = `${this.md_parent}/${href}`;
-          }
+          } else final_href = href;
 
           const titleLine = title ? `title=${title}` : '';
 
