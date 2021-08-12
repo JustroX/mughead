@@ -28,7 +28,7 @@ export class GhostPageComponent implements OnInit {
       { include: ['authors', 'tags'] }
     );
     this.post$.catch((err) => {
-      if (err.message == 'Post not found.') this.isMissing = true;
+      if (err.message == 'Page not found.') this.isMissing = true;
     });
   }
 
