@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import * as marked from 'marked';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-md-content',
@@ -27,6 +27,8 @@ export class MdContentComponent implements OnInit {
 
   md_route_path = '';
   md_asset_path = '';
+
+  isMissing: boolean = false;
 
   md$!: Observable<string>;
   html$!: Observable<string>;
@@ -101,7 +103,13 @@ export class MdContentComponent implements OnInit {
     this.md_asset_path = `/${this.assetRoot}/${path}.md`;
 
     this.md$ = this.http.get(this.md_asset_path, { responseType: 'text' });
-    this.html$ = this.md$.pipe(map((x) => marked(x)));
+    this.html$ = this.md$.pipe(
+      map((x) => marked(x)),
+      catchError((err) => {
+        if (err?.status == 404) this.isMissing = true;
+        return [];
+      })
+    );
   }
 
   ngOnInit(): void {}
