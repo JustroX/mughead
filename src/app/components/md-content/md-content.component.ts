@@ -39,7 +39,6 @@ export class MdContentComponent implements OnInit {
         link: (href: string, title: string, text: string) => {
           const is_absolute_path = is_abs_regex.test(href);
           const is_root = href[0] == '/';
-          console.log(href);
 
           let final_href = '';
           if (!is_absolute_path) {
@@ -89,7 +88,6 @@ export class MdContentComponent implements OnInit {
   ngOnChanges() {
     if (this.path == '') return;
     this.setUpMarked();
-    console.log(this.path);
     const path_chunks = this.path.split('/').slice(2);
     const path = path_chunks.join('/');
 
