@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './pages/content/content.component';
+import { GhostPostComponent } from './plugins/ghost/pages/ghost-post/ghost-post.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,24 @@ const routes: Routes = [
         path: '**',
         component: ContentComponent,
         runGuardsAndResolvers: 'always',
+      },
+    ],
+  },
+  {
+    path: 'g',
+    children: [
+      {
+        path: 'post',
+        children: [
+          {
+            path: 'slug/:slug',
+            component: GhostPostComponent,
+          },
+          {
+            path: ':id',
+            component: GhostPostComponent,
+          },
+        ],
       },
     ],
   },
