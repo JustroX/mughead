@@ -20,7 +20,6 @@ export class GhostPostComponent implements OnInit {
       { id },
       { include: ['authors', 'tags'] }
     );
-    this.post$.then((x) => console.log(x));
   }
 
   private loadPageBySlug(slug: string) {
