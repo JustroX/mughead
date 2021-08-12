@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   ghost: {
     host: 'http://localhost:4200',
-    key: '',
+    key: 'f31097afa2cb74f44c588441c7',
   },
 };
 

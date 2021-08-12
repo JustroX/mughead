@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContentGhostComponent } from './content-ghost.component';
+import { ContentGhostComponent } from './ghost-post.component';
 
 describe('ContentGhostComponent', () => {
   let component: ContentGhostComponent;
@@ -8,9 +8,8 @@ describe('ContentGhostComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContentGhostComponent ]
-    })
-    .compileComponents();
+      declarations: [ContentGhostComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

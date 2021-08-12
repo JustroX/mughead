@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-ghost-post',
-  templateUrl: './ghost-post.component.html',
-  styleUrls: ['./ghost-post.component.scss'],
+  selector: 'app-ghost-page-post',
+  templateUrl: './ghost-page-post.component.html',
+  styleUrls: ['./ghost-page-post.component.scss'],
 })
-export class GhostPostComponent implements OnInit {
+export class GhostPagePostComponent implements OnInit {
   id?: string;
   slug?: string;
   constructor(private route: ActivatedRoute) {

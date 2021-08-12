@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './pages/content/content.component';
-import { GhostPostComponent } from './plugins/ghost/pages/ghost-post/ghost-post.component';
+import { GhostPagePostComponent } from './plugins/ghost/pages/ghost-page-post/ghost-page-post.component';
 
 const routes: Routes = [
   {
@@ -27,11 +27,11 @@ const routes: Routes = [
         children: [
           {
             path: 'slug/:slug',
-            component: GhostPostComponent,
+            component: GhostPagePostComponent,
           },
           {
             path: ':id',
-            component: GhostPostComponent,
+            component: GhostPagePostComponent,
           },
         ],
       },

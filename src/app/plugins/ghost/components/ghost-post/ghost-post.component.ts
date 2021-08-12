@@ -3,11 +3,11 @@ import { PostOrPage } from '@tryghost/content-api';
 import { GhostApiService } from '../../services/ghost-api.service';
 
 @Component({
-  selector: 'app-content-ghost',
-  templateUrl: './content-ghost.component.html',
-  styleUrls: ['./content-ghost.component.scss'],
+  selector: 'app-ghost-post',
+  templateUrl: './ghost-post.component.html',
+  styleUrls: ['./ghost-post.component.scss'],
 })
-export class ContentGhostComponent implements OnInit {
+export class GhostPostComponent implements OnInit {
   @Input() id?: string;
   @Input() slug?: string;
   isMissing: boolean = false;
