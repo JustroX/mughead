@@ -7,7 +7,7 @@ import { sanitize } from 'dompurify';
 })
 export class SafeHTMLPipe implements PipeTransform {
   constructor(private sanitized: DomSanitizer) {}
-  transform(value: string | null) {
+  transform(value: string | null | undefined) {
     const clean = sanitize(value ?? '');
     return this.sanitized.bypassSecurityTrustHtml(clean);
   }
