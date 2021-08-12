@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GhostPagePostComponent } from './ghost-page-post.component';
+import { GhostViewPost } from './ghost-view-post.component';
 
-describe('GhostPagePostComponent', () => {
-  let component: GhostPagePostComponent;
-  let fixture: ComponentFixture<GhostPagePostComponent>;
+describe('GhostViewPost', () => {
+  let component: GhostViewPost;
+  let fixture: ComponentFixture<GhostViewPost>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GhostPagePostComponent],
+      declarations: [GhostViewPost],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GhostPagePostComponent);
+    fixture = TestBed.createComponent(GhostViewPost);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
