@@ -1,0 +1,15 @@
+<div class="content p-4 mb-5">
+  <a
+    [routerLink]="['/g/page/slug/', slug]"
+    class="has-text-dark mt-4 is-size-4 has-text-weight-bold"
+    >{{ title }}</a
+  >
+  <p class="mt-4 mb-5">{{ excerpt }}</p>
+  <app-ghost-author
+    [name]="name"
+    [image]="image"
+    [published_at]="published_at"
+    [reading_time]="reading_time"
+    [slug]="author_slug"
+  ></app-ghost-author>
+</div>
