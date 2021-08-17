@@ -1,5 +1,8 @@
 <div *ngIf="!isMissing" class="content mb-6">
-  <div class="is-uppercase is-size-7 has-text-primary">
+  <div
+    [routerLink]="['/g/tag/', (post$ | async)?.primary_tag?.slug]"
+    class="is-uppercase is-size-7 has-text-primary pointer"
+  >
     {{ (post$ | async)?.primary_tag?.name }}
   </div>
   <h1 class="mb-5 mt-1 is-size-2">{{ (post$ | async)?.title }}</h1>
