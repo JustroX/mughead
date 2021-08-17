@@ -8,6 +8,7 @@ import { Nullable } from '@tryghost/content-api';
 })
 export class GhostPostCardComponent implements OnInit {
   @Input() tag?: string = '';
+  @Input() tag_slug?: string = '';
   @Input() title?: string = '';
   @Input() excerpt?: string = '';
 

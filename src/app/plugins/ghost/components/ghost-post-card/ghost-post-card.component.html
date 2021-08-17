@@ -1,5 +1,10 @@
 <div class="content p-4 mb-5">
-  <div class="has-text-primary is-uppercase is-size-7">{{ tag }}</div>
+  <div
+    [routerLink]="['/g/tag/', tag_slug]"
+    class="pointer has-text-primary is-uppercase is-size-7"
+  >
+    {{ tag }}
+  </div>
   <a
     [routerLink]="['/g/post/slug/', slug]"
     class="has-text-dark mt-4 is-size-4 has-text-weight-bold"
