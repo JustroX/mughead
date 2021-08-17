@@ -16,6 +16,7 @@ import { GhostViewPostList } from './pages/ghost-view-post-list/ghost-view-post-
 import { GhostViewAuthorList } from './pages/ghost-view-author-list/ghost-view-author-list.component';
 import { GhostViewTagList } from './pages/ghost-view-tag-list/ghost-view-tag-list.component';
 import { GhostViewTag } from './pages/ghost-view-tag/ghost-view-tag.component';
+import { GhostPageCardComponent } from './components/ghost-page-card/ghost-page-card.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { GhostViewTag } from './pages/ghost-view-tag/ghost-view-tag.component';
     GhostViewAuthorList,
     GhostViewTagList,
     GhostViewTag,
+    GhostPageCardComponent,
   ],
   providers: [GhostApiService],
   imports: [CommonModule, PipesModule, RouterModule],
