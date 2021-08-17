@@ -1,0 +1,37 @@
+<nav
+  class="navbar is-transparent"
+  role="navigation"
+  aria-label="main navigation"
+>
+  <div class="navbar-brand">
+    <!-- <a class="navbar-item" href="/">
+      <img src="assets/logo.png" width="50" height="50" />
+    </a> -->
+
+    <a
+      [class.is-active]="isOpen"
+      (click)="isOpen = !isOpen"
+      role="button"
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarMenu"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarMenu" class="navbar-menu" [class.is-active]="isOpen">
+    <div class="navbar-start">
+      <a
+        *ngFor="let item of navigation$ | async"
+        [routerLink]="item.url"
+        class="navbar-item"
+      >
+        {{ item.label }}
+      </a>
+    </div>
+  </div>
+</nav>
