@@ -1,0 +1,10 @@
+<div class="container ml-6 mr-6 mt-6">
+  <p class="title mb-5">Categories</p>
+  <div class="ml-5">
+    <ol>
+      <li *ngFor="let tag of tags$ | async">
+        <a [routerLink]="['/g/tag', tag.slug]">{{ tag.name }}</a>
+      </li>
+    </ol>
+  </div>
+</div>

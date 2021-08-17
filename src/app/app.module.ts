@@ -7,8 +7,9 @@ import { AppComponent } from './app.component';
 import { ContentComponent } from './pages/content/content.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NavigationItemComponent } from './components/navigation-item/navigation-item.component';
-import { SafeHTMLPipe } from './pipes/safe-html.pipe';
-import { ViewerComponent } from './components/viewer/viewer.component';
+import { MdContentComponent } from './components/md-content/md-content.component';
+import { GhostModule } from './plugins/ghost/ghost.module';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +17,15 @@ import { ViewerComponent } from './components/viewer/viewer.component';
     ContentComponent,
     NavigationComponent,
     NavigationItemComponent,
-    SafeHTMLPipe,
-    ViewerComponent,
+    MdContentComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    PipesModule,
+    GhostModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

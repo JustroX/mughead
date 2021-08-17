@@ -8,14 +8,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./content.component.scss'],
 })
 export class ContentComponent implements OnInit {
-  url: string = '';
+  path: string = '';
   navigationSubscription;
 
   constructor(private router: Router, private http: HttpClient) {
-    this.url = this.router.url.split('#')[0];
+    this.path = this.router.url.split('#')[0];
     this.navigationSubscription = this.router.events.subscribe((e: any) => {
       if (e instanceof NavigationEnd) {
-        this.url = this.router.url.split('#')[0];
+        this.path = this.router.url.split('#')[0];
       }
     });
   }

@@ -1,0 +1,2 @@
+/ghost/*  http://localhost:2368/ghost/:splat  200
+/*  /index.html 200

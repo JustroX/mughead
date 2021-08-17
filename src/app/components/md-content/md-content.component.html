@@ -1,0 +1,13 @@
+<app-navigation
+  *ngIf="showNavigation && !isMissing"
+  [markdown]="(md$ | async) ?? ''"
+></app-navigation>
+<div
+  *ngIf="!isMissing"
+  class="content"
+  [innerHTML]="html$ | async | safeHTML"
+></div>
+<div *ngIf="isMissing" class="content">
+  <p class="title">Uh oh</p>
+  <p class="subtitle">Page not found</p>
+</div>

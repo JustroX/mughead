@@ -1,0 +1,17 @@
+<div class="container mt-6">
+  <p class="title">{{ (tag$ | async)?.name }}</p>
+
+  <app-ghost-post-card
+    *ngFor="let post of posts$ | async"
+    [tag]="post.primary_tag?.name"
+    [tag_slug]="post.primary_tag?.slug"
+    [title]="post.title"
+    [excerpt]="post.excerpt"
+    [name]="post.primary_author?.name"
+    [image]="post.primary_author?.profile_image"
+    [published_at]="post.published_at"
+    [reading_time]="post.reading_time"
+    [author_slug]="post.primary_author?.slug"
+    [slug]="post.slug"
+  ></app-ghost-post-card>
+</div>

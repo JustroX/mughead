@@ -1,5 +1,0 @@
-<app-navigation
-  *ngIf="showNavigation"
-  [markdown]="(md$ | async) ?? ''"
-></app-navigation>
-<div class="content" [innerHTML]="html$ | async | safeHTML"></div>

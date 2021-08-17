@@ -1,0 +1,8 @@
+{
+  "/ghost/*": {
+    "target": "http://localhost:2368",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

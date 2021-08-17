@@ -1,0 +1,29 @@
+<div *ngIf="!isMissing" class="content mb-6">
+  <div
+    [routerLink]="['/g/tag/', (post$ | async)?.primary_tag?.slug]"
+    class="is-uppercase is-size-7 has-text-primary pointer"
+  >
+    {{ (post$ | async)?.primary_tag?.name }}
+  </div>
+  <h1 class="mb-5 mt-1 is-size-2">{{ (post$ | async)?.title }}</h1>
+
+  <div class="authors">
+    <app-ghost-author
+      [name]="(post$ | async)?.primary_author?.name"
+      [image]="(post$ | async)?.primary_author?.profile_image"
+      [published_at]="(post$ | async)?.published_at"
+      [reading_time]="(post$ | async)?.reading_time"
+      [slug]="(post$ | async)?.primary_author?.slug"
+    ></app-ghost-author>
+  </div>
+</div>
+<div
+  *ngIf="!isMissing"
+  class="content"
+  [innerHTML]="(post$ | async)?.html | safeHTML"
+></div>
+
+<div *ngIf="isMissing" class="content">
+  <p class="title">Uh oh</p>
+  <p class="subtitle">Page not found</p>
+</div>
