@@ -7,6 +7,9 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
 import { GhostAuthorComponent } from './components/ghost-author/ghost-author.component';
 import { GhostViewPage } from './pages/ghost-view-page/ghost-view-page.component';
 import { GhostPageComponent } from './components/ghost-page/ghost-page.component';
+import { GhostViewAuthor } from './pages/ghost-view-author/ghost-view-author.component';
+import { GhostPostCardComponent } from './components/ghost-post-card/ghost-post-card.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,9 +18,11 @@ import { GhostPageComponent } from './components/ghost-page/ghost-page.component
     GhostAuthorComponent,
     GhostViewPage,
     GhostPageComponent,
+    GhostViewAuthor,
+    GhostPostCardComponent,
   ],
   providers: [GhostApiService],
-  imports: [CommonModule, PipesModule],
+  imports: [CommonModule, PipesModule, RouterModule],
   exports: [GhostPostComponent],
 })
 export class GhostModule {}

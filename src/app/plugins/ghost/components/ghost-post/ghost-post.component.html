@@ -10,7 +10,7 @@
       [image]="(post$ | async)?.primary_author?.profile_image"
       [published_at]="(post$ | async)?.published_at"
       [reading_time]="(post$ | async)?.reading_time"
-      [slug]="(post$ | async)?.slug"
+      [slug]="(post$ | async)?.primary_author?.slug"
     ></app-ghost-author>
   </div>
 </div>

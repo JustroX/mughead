@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './pages/content/content.component';
+import { GhostViewAuthor } from './plugins/ghost/pages/ghost-view-author/ghost-view-author.component';
 import { GhostViewPage } from './plugins/ghost/pages/ghost-view-page/ghost-view-page.component';
 import { GhostViewPost } from './plugins/ghost/pages/ghost-view-post/ghost-view-post.component';
 
@@ -46,6 +47,15 @@ const routes: Routes = [
           {
             path: ':id',
             component: GhostViewPage,
+          },
+        ],
+      },
+      {
+        path: 'author',
+        children: [
+          {
+            path: ':slug',
+            component: GhostViewAuthor,
           },
         ],
       },

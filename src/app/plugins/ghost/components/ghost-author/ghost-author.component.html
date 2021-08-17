@@ -1,6 +1,6 @@
 <div class="is-flex">
-  <div class="thumbnail">
-    <figure class="image is-48x48 m-0">
+  <div [routerLink]="['/g/author', slug]" class="thumbnail">
+    <figure *ngIf="image && image != ''" class="image is-48x48 m-0">
       <img class="is-rounded" [src]="image" [alt]="name" />
     </figure>
   </div>
