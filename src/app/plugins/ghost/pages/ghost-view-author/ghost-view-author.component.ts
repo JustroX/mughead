@@ -22,7 +22,6 @@ export class GhostViewAuthor implements OnInit {
       { slug: this.slug },
       { include: 'count.posts' }
     );
-    this.author$.then((x) => console.log(x));
   }
 
   private loadPosts() {
@@ -30,8 +29,8 @@ export class GhostViewAuthor implements OnInit {
       filter: `primary_author:${this.slug}`,
       include: ['tags', 'authors'],
     });
-    this.posts$.then((x) => console.log(x));
   }
+
   ngOnInit() {
     this.loadAuthor();
     this.loadPosts();
