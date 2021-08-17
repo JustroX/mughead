@@ -1,0 +1,24 @@
+<div class="container is-flex mt-6">
+  <div class="columns">
+    <div class="column is-two-fifths" *ngFor="let author of authors$ | async">
+      <div [routerLink]="['/g/author', author.slug]" class="thumbnail">
+        <figure
+          *ngIf="author.profile_image && author.profile_image != ''"
+          class="image is-128x128 m-0"
+        >
+          <img
+            class="is-rounded"
+            [src]="author.profile_image"
+            [alt]="author.name"
+          />
+        </figure>
+      </div>
+      <div class="ml-3 content mt-3">
+        <h3>{{ author.name }}</h3>
+        <p class="has-text-left">
+          {{ author.bio ?? "No current bio" }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
