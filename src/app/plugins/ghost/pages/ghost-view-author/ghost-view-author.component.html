@@ -28,6 +28,7 @@
       <app-ghost-post-card
         *ngFor="let post of posts$ | async"
         [tag]="post.primary_tag?.name"
+        [tag_slug]="post.primary_tag?.slug"
         [title]="post.title"
         [excerpt]="post.excerpt"
         [name]="post.primary_author?.name"
