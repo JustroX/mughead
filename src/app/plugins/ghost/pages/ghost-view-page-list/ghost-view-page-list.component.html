@@ -1,0 +1,15 @@
+<div class="container mt-6">
+  <app-ghost-page-card
+    *ngFor="let page of pages$ | async"
+    [tag]="page.primary_tag?.name"
+    [tag_slug]="page.primary_tag?.slug"
+    [title]="page.title"
+    [excerpt]="page.excerpt"
+    [name]="page.primary_author?.name"
+    [image]="page.primary_author?.profile_image"
+    [published_at]="page.published_at"
+    [reading_time]="page.reading_time"
+    [author_slug]="page.primary_author?.slug"
+    [slug]="page.slug"
+  ></app-ghost-page-card>
+</div>
