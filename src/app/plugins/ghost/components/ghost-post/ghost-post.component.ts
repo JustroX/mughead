@@ -35,6 +35,7 @@ export class GhostPostComponent implements OnInit {
   private loadPage() {
     if (this.id) this.loadPageById(this.id);
     if (this.slug) this.loadPageBySlug(this.slug);
+    this.post$.then((p) => this.ghost.setTags(p));
   }
 
   ngOnChanges() {
